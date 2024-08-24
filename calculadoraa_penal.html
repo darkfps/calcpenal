@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style>
+  body,td,th { font-size: 14px; font-family: tahoma; color: #666; cursor: default; vertical-align: baseline; outline: 0; line-height: 1; margin: 0; padding: 0; word-wrap: break-word; }
+a,a:link,a:visited,a:active,a:hover { font-family: tahoma; font-size: 14px; color: #666; text-decoration: none; }
+div,span,applet,object,iframe,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr { border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; margin:0; padding:0; }
+:focus { outline:0; }
+img { border:none; }
+::-webkit-scrollbar { width: 0; }
+::selection { background: #FFB90F; }
+::-moz-selection { background: #0fb3ff; }
+
+#actionmenu {
+	top: 50%;
+	left: 50%;
+	width: 1200px;
+	height: 700px;
+	display: none;
+	overflow: auto;
+	position: fixed;
+	border-top: 12px solid #111;
+	border-left: 12px solid #111;
+	border-right: 12px solid #111;
+	border-bottom: 40px solid #111;
+	transform: translate(-50%,-50%);
+	background: #FFB90F;
+}
+
+buttom {
+	top: 50%;
+	left: 50%;
+	width: 40px;
+	height: 14px;
+	display: none;
+	position: fixed;
+	margin-top: 355px;
+	background: #ffffff;
+	transform: translate(-50%,-50%);
+}
+
+buttom:hover {
+	background: #fff;
+}
+
+#header{
+	float: left;
+	width: 100%;
+	height: 70px;
+	background: #5f4230;
+}
+
+#header img{
+	width: 60px;
+	height: auto;
+	float: left;
+	padding: 7px;
+}
+
+#header h1{
+	float: left;
+	margin: 20px 20px;
+	color: #fff;
+}
+
+nav{
+	width: 15%;
+	height: 100%;
+	float: left;
+}
+
+.menu {
+	width: 100%;
+	height: 186px;
+	float: left;
+	/*background: rgba(118,194,169,0.1);*/
+}
+.sub-menu {
+	width: 100%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #000;
+	/*background: rgba(118,194,169,0.1);*/
+}
+
+.menu a {
+	color: #a2a0a0;
+	padding: 25px 10px;
+	font-weight: 700;
+	float: left;
+	width: 89%;
+	border-right: solid 1px #000;
+}
+
+.menu a:hover, .menu a:focus {
+	/*background: rgba(118,194,169,1);*/
+	color: #5f4230;
+	border-top: solid 1px #000;
+	border-bottom: solid 1px #000;
+	border-right: 0;
+	width: 161px;
+}
+
+.title {
+	width: 1125px;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px 0 10px 15px;
+	border-bottom: 1px dashed #999;
+}
+
+.stitle {
+	width: 1110px;
+	padding: 15px 15px 30px;
+	float: left;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.stitle2 {
+	width: 1110px;
+	padding: 15px 15px 0;
+	float: left;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+s {
+	color: #45fffc;
+	text-decoration: none;
+}
+
+.dtitle2 {
+	width: 355px;
+	padding: 15px 0 30px 15px;
+	float: left;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.dtitle3 {
+	width: 355px;
+	padding: 15px 0 0 15px;
+	float: left;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+#opacity {
+	background: rgba(0,0,0,0.05);
+	padding: 15px;
+	width: 1170px;
+	float: left;
+}
+
+#opacity2 {
+	padding: 15px;
+	width: 1170px;
+	float: left;
+}
+
+#opacity:hover, #opacity2:hover {
+	background: rgba(169,73,135,0.1);
+}
+
+.title-one {
+	width: 310px;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px 0 10px 15px;
+	border-bottom: 1px dashed #999;
+	margin: 0 0 15px;
+}
+
+.title-two {
+	width: 150px;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	padding: 5px 0 10px 0;
+	border-bottom: 1px dashed #999;
+	margin: 0 0 15px;
+}
+
+.title-tree {
+	width: 150px;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	padding: 5px 0 10px 0;
+	border-bottom: 1px dashed #999;
+	margin: 0 0 15px;
+}
+
+.title-four {
+	width: 200px;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px 0 10px 15px;
+	border-bottom: 1px dashed #999;
+	margin: 0 0 15px;
+}
+
+.parts-one {
+	font-weight: 700;
+	width: 310px;
+	float: left;
+}
+
+.parts-two {
+	width: 150px;
+	float: left;
+	text-align: center;
+}
+
+.parts-tree {
+	width: 150px;
+	float: left;
+	text-align: center;
+}
+
+.parts-four {
+	width: 545px;
+	float: left;
+	padding: 0 0 0 15px;
+}
+
+.quadro{
+	position: relative;
+	float: left;
+	width: 32%;
+}
+
+.quadro button{
+	border:0;
+	background-color: #000000;
+	color: #fff;
+	padding: 7px 30px;
+	margin-bottom: 15px;
+	border-bottom: 3px rgb(226, 135, 44) solid;
+}
+.right {
+text-align: right;
+}
+
+.left {
+text-align: left;
+}
+.center { 
+text-align: center;
+ display: flex;
+   align-items:center;
+   font-weight: bold;
+   font-size: 18px;
+   
+  justify-content: center;
+}
+
+
+</style>
+<head>
+ 
+ 
+  <title>Calculadora Penal - Coliseu RJ</title>
+</head>    
+ 
+<body>  <center>
+<div class="center">
+  
+<img src="https://cdn.discordapp.com/attachments/1275568920056565821/1275569102173376564/png.png?ex=66ca524c&is=66c900cc&hm=79ba649f166c1e6c73d8ec1d6f5b963d5041e0e4f2858c14eb6018a77a56809e&" width="160" height=""> </div></center>
+ 
+
+<div id="1" class="fc quadro">
+ 
+
+	
+
+	
+	<h3><FONT COLOR="#022d42">CRIMES CONTRA A VIDA:</FONT></h3>
+	<p><input id="Art. 1.1 - Homicidio Doloso Qualificado" type="checkbox" name="crime" value="35|100000|NA" onclick="calcular()">Art. 1.1 - Homicidio Doloso Qualificado</p>
+	<p><input id="Art. 1.2 - Homicidio Doloso" type="checkbox" name="crime" value="30|125000|NA" onclick="calcular()">Art. 1.2 - Homicidio Doloso</p>
+	<p><input id="Art. 1.3 - Tentativa de Homicidio" type="checkbox" name="crime" value="25|75000|NA" onclick="calcular()">Art. 1.3 - Tentativa de Homicidio</p>
+	<p><input id="Art. 1.4 - Homicidio Culposo" type="checkbox" name="crime" value="20|125000|NA" onclick="calcular()">Art. 1.4 - Homicidio Culposo</p>
+	<p><input id="Art. 1.5 - Homicidio Culposo no Transito" type="checkbox" name="crime" value="15|57500|40000" onclick="calcular()">Art. 1.5 - Homicidio Culposo no Transito</p>
+ 
+	<h3><FONT COLOR="#022d42">CRIMES CONTRA DIREITOS FUNDAMENTAIS:</FONT></h3>
+	<p><input id="Art. 2.1 - Lesão Corporal" type="checkbox" name="crime" value="10|15000|200000" onclick="calcular()">Art. 2.1 - Lesão Corporal</p>
+	<p><input id="Art. 2.2 - Incêndio" type="checkbox" name="crime" value="10|15000|200000" onclick="calcular()">Art. 2.2 - Incêndio</p>
+	<p><input id="Art. 2.3 - Sequestro." type="checkbox" name="crime" value="50|80000|NA" onclick="calcular()">Art. 2.3 - Sequestro.</p>
+	<p><input id="Art. 2.4 - Cárcere Privado." type="checkbox" name="crime" value="15|20000|200000" onclick="calcular()">Art. 2.4 - Cárcere Privado.</p>
+
+
+	<h3><FONT COLOR="#022d42">CRIMES CONTRA O PATRIMÔNIO:</FONT></h3>
+	<p><input id="Art. 3.1 - Desmanche de Veículos" type="checkbox" name="crime" value="35|55000|250000" onclick="calcular()">Art. 3.1 - Desmanche de Veículos</p>
+	<p><input id="Art. 3.2 - Furto" type="checkbox" name="crime" value="20|30000|62500" onclick="calcular()">Art. 3.2 - Furto</p>
+	<p><input id="Art. 3.3 - Receptação de Veículos" type="checkbox" name="crime" value="15|50000|62500" onclick="calcular()">Art. 3.3 - Receptação de Veículos</p>
+	<p><input id="Art. 3.4 - Roubo de Veículos" type="checkbox" name="crime" value="25|45000|62500" onclick="calcular()">Art. 3.4 - Roubo de Veículos</p>
+
+
+
+	<h3><FONT COLOR="#022d42">CRIMES DE ROUBOS, FURTOS E SEUS VARIANTES:</FONT></h3>
+	<p><input id="Art. 4.1 - Roubo" type="checkbox" name="crime" value="10|55000|150000" onclick="calcular()">Art. 4.1 - Roubo</p>
+	<p><input id="Art. 4.2 - Furto a caixa eletrônico" type="checkbox" name="crime" value="15|55000|80000" onclick="calcular()">Art. 4.2 - Furto a caixa eletrônico</p>
+	<p><input id="Art. 4.3 - Extorsão" type="checkbox" name="crime" value="25|45000|250000" onclick="calcular()">Art. 4.3 - Extorsão</p>
+
+
+
+	<h3><FONT COLOR="#022d42">CRIMES DE PORTE, POSSE E TRÁFICO:</FONT></h3>
+	<p><input id="Art. 5.1 - Posse de peças de armas" type="checkbox" name="crime" value="10|35000|125000" onclick="calcular()">Art. 5.1 - Posse de peças de armas</p>
+	<p><input id="Art. 5.2 - Posse de Capsula" type="checkbox" name="crime" value="35|45000|125000" onclick="calcular()">Art. 5.2 - Posse de Capsula</p>
+	<p><input id="Art. 5.3 - Tráfico de Armas" type="checkbox" name="crime" value="60|75000|350000" onclick="calcular()">Art. 5.3 - Tráfico de Armas</p>
+	<p><input id="Art. 5.4 - Porte de Arma Pesada" type="checkbox" name="crime" value="20|90000|275000" onclick="calcular()">Art. 5.4 - Porte de Arma Pesada</p>
+	<p><input id="Art. 5.5 - Porte de Arma Leve" type="checkbox" name="crime" value="15|55000|225000" onclick="calcular()">Art. 5.5 - Porte de Arma Leve</p>
+	<p><input id="Art. 5.6 - Disparo de Arma" type="checkbox" name="crime" value="5|50000|100000" onclick="calcular()">Art. 5.6 - Disparo de Arma</p>
+	<p><input id="Art. 5.7 - Tráfico de Munições (+100)" type="checkbox" name="crime" value="60|35000|300000" onclick="calcular()">Art. 5.7 - Tráfico de Munições (+100)</p>
+	<p><input id="Art. 5.8 - Posse de Munição (-100)" type="checkbox" name="crime" value="15|25000|125000" onclick="calcular()">Art. 5.8 - Posse de Munição (-100)</p>
+	<p><input id="Art. 5.9 - Posse de Colete" type="checkbox" name="crime" value="20|30000|30000" onclick="calcular()">Art. 5.9 - Posse de Colete</p>
+	<p><input id="Art. 5.10 - Posse de Arma Branca" type="checkbox" name="crime" value="0|12500|0" onclick="calcular()">Art. 5.10 - Posse de Arma Branca</p>
+	<p><input id="Art. 5.11 - Tráfico de drogas (+100)" type="checkbox" name="crime" value="35|40000|100000" onclick="calcular()">Art. 5.11 - Tráfico de drogas (+100)</p>
+	<p><input id="Art. 5.12 - Aviãozinho (6 a 100)" type="checkbox" name="crime" value="20|15000|70000" onclick="calcular()">Art. 5.12 - Aviãozinho (6 a 100)</p>
+	<p><input id="Art. 5.13 - Posse de Componentes Narcóticos" type="checkbox" name="crime" value="10|20000|125000" onclick="calcular()">Art. 5.13 - Posse de Componentes Narcóticos</p>
+	<p><input id="Art. 5.14 - Posse de drogas (1 a 5)" type="checkbox" name="crime" value="0|5500|60000" onclick="calcular()">Art. 5.14 - Posse de drogas (1 a 5)</p>
+	<p><input id="Art. 5.15 - Dinheiro sujo" type="checkbox" name="crime" value="25|250|60000" onclick="calcular()">Art. 5.15 - Dinheiro sujo</p>
+	<p></p>
+    <p></p>
+    <p></p>
+</div> 
+	
+
+ <div id="2" class="quadro">
+
+ 
+    
+        <h3><FONT COLOR="#022d42">CRIMES CONTRA A ORDEM PUBLICA:</FONT></h3>
+	<p><FONT COLOR="#666"><input id="Art. 6.1 - Falsidade ideológica." type="checkbox" name="crime" value="25|10000|62500" onclick="calcular()">Art. 6.1 - Falsidade ideológica.</p>
+    <p><FONT COLOR="#666"><input id="Art. 6.2 - Formação de quadrilha." type="checkbox" name="crime" value="20|15000|62500" onclick="calcular()">Art. 6.2 - Formação de quadrilha.</p>
+	<p><input id="Art. 6.3 - Apologia ao crime." type="checkbox" name="crime" value="10|17000|15000" onclick="calcular()">Art. 6.3 - Apologia ao crime.</p>	
+    <p><input id="Art. 6.4 - Posse de arma em público." type="checkbox" name="crime" value="10|15000|0" onclick="calcular()">Art. 6.4 - Posse de arma em público.</p>
+	<p><input id="Art. 6.5 - Suborno." type="checkbox" name="crime" value="20|30000|100000" onclick="calcular()">Art. 6.5 - Suborno.</p>
+	<p><input id="Art. 6.6 - Ameaça." type="checkbox" name="crime" value="5|15000|10000" onclick="calcular()">Art. 6.6 - Ameaça.</p>
+	<p><input id="Art. 6.7 - Falsa comunicação de crime." type="checkbox" name="crime" value="10|30000|10000" onclick="calcular()">Art. 6.7 - Falsa comunicação de crime.</p>
+	<p><input id="Art. 6.8- Uso indevido de 190/192." type="checkbox" name="crime" value="10|30000|10000" onclick="calcular()">Art. 6.8- Uso indevido de 190/192.</p>
+	<p><input id="Art. 6.9-Desobêdiencia." type="checkbox" name="crime" value="5|15000|30000" onclick="calcular()">Art. 6.9-Desobêdiencia.</p>
+	<p><input id="Art. 6.10 - Posse de itens ilegais." type="checkbox" name="crime" value="10|10000|10000" onclick="calcular()">Art. 6.10 - Posse de itens ilegais.</p>
+	<p><input id="Art. 6.11 - Assédio moral." type="checkbox" name="crime" value="10|15000|NA" onclick="calcular()">Art. 6.11 - Assédio moral.</p>
+	<p><input id="Art. 6.12- Atentado ao pudor." type="checkbox" name="crime" value="10|15000|10000" onclick="calcular()">Art. 6.12- Atentado ao pudor.</p>
+	<p><input id="Art. 6.13 - Vandalismo." type="checkbox" name="crime" value="10|16000|10000" onclick="calcular()">Art. 6.13 - Vandalismo.</p>
+	<p><input id="Art. 6.14 - Vandalismo a propriedade do Governo." type="checkbox" name="crime" value="15|18000|12000" onclick="calcular()">Art. 6.14 - Vandalismo a propriedade do Governo.</p>
+	<p><input id="Art. 6.15 - Invasão de propriedade." type="checkbox" name="crime" value="15|20000|200000" onclick="calcular()">Art. 6.15 - Invasão de propriedade.</p>
+	<p><input id="Art. 6.16 - Abuso de autoridade." type="checkbox" name="crime" value="20|30000|20000" onclick="calcular()">Art. 6.16 - Abuso de autoridade.</p>
+	<p><input id="Art. 6.17 - Uso de máscara." type="checkbox" name="crime" value="10|15000|10000" onclick="calcular()">Art. 6.17 - Uso de máscara.</p>
+	<p><input id="Art. 6.18 - Uso de equipamentos restritos." type="checkbox" name="crime" value="10|20000|10000" onclick="calcular()">Art. 6.18 - Uso de equipamentos restritos.</p>
+	<p><input id="Art. 6.19 - Omissão de socorro." type="checkbox" name="crime" value="15|20000|15000" onclick="calcular()">Art. 6.19 - Omissão de socorro.</p>
+	<p><input id="Art. 6.20 - Tentativa de fuga." type="checkbox" name="crime" value="15|20000|8000" onclick="calcular()">Art. 6.20 - Tentativa de fuga.</p>
+	<p><input id="Art. 6.21 - Desacato." type="checkbox" name="crime" value="20|20000|N/A" onclick="calcular()">Art. 6.21 - Desacato.</p>
+	<p><input id="Art. 6.22 - Desacato 2." type="checkbox" name="crime" value="20|20000|N/A" onclick="calcular()">Art. 6.22 - Desacato 2.</p>
+	<p><input id="Art. 6.23 - Desacato 3." type="checkbox" name="crime" value="20|20000|N/A" onclick="calcular()">Art. 6.23 - Desacato 3.</p>
+	<p><input id="Art. 6.24 - Resistência a prisão." type="checkbox" name="crime" value="10|0|20000" onclick="calcular()">Art. 6.24 - Resistência a prisão.</p>
+	<p><input id="Art. 6.25 - Réu Reincidente." type="checkbox" name="crime" value="5|0|20000" onclick="calcular()">Art. 6.25 - Réu Reincidente.</p>
+	<p><input id="Art. 6.26 - Cúmplice." type="checkbox" name="crime" value="0|0|10000" onclick="calcular()">Art. 6.26 - Cúmplice.</p>
+	<p><input id="Art. 6.27 - Obstrução à Justiça." type="checkbox" name="crime" value="20|15000|20000" onclick="calcular()">Art. 6.27 - Obstrução à Justiça.</p>
+	<p><input id="Art. 6.28 - Ocultação de Provas." type="checkbox" name="crime" value="10|10000|20000" onclick="calcular()">Art. 6.28 - Ocultação de Provas.</p>
+
+ 
+	<h3><FONT COLOR="#022d42">CRIMES DE TRÂNSITO:</FONT></h3>
+	<p><input id="Art. 7.1 - Condução imprudente" type="checkbox" name="crime"  value="10|15000|10000" onclick="calcular()">Art. 7.1 - Condução imprudente</p>
+	<p><input id="Art. 7.2 - Dirigir na contra mão" type="checkbox" name="crime" value="0|15000|8000" onclick="calcular()">Art. 7.2 - Dirigir na contra mão</p>
+	<p><input id="Art. 7.3 - Alta velocidade" type="checkbox" name="crime" value="0|10000|10000" onclick="calcular()">Art. 7.3 - Alta velocidade</p>
+	<p><input id="Art. 7.4 - Poluição sonora" type="checkbox" name="crime" value="0|25000|25000" onclick="calcular()">Art. 7.4 - Poluição sonora</p>
+	<p><input id="Art. 7.5 - Corridas Ilegais" type="checkbox" name="crime" value="0|30000|25000" onclick="calcular()">Art. 7.5 - Corridas Ilegais</p>
+	<p><input id="Art. 7.6 - Uso excessivo de insulfilm" type="checkbox" name="crime" value="0|20000|0" onclick="calcular()">Art. 7.6 - Uso excessivo de insulfilm</p>
+	<p><input id="Art. 7.7 - Veículo muito danificado." type="checkbox" name="crime" value="0|12500|15000" onclick="calcular()">Art. 7.7 - Veículo muito danificado.</p>
+	<p><input id="Art. 7.8 - Veiculo Ilegalmente estacionado" type="checkbox" name="crime" value="0|10000|0" onclick="calcular()">Art. 7.8 - Veiculo Ilegalmente estacionado</p>
+	<p><input id="Art. 7.9 - Condução sem uso adequado de faróis" type="checkbox" name="crime" value="5|15000|10000" onclick="calcular()">Art. 7.9 - Condução sem uso adequado de faróis</p>
+    <p><input id="Art. 7.10 - Não ceder passagem a viaturas" type="checkbox" name="crime" value="0|15000|5000" onclick="calcular()">Art. 7.10 - Não ceder passagem a viaturas</p>
+	<p><input id="Art. 7.11 - Impedir o fluxo do tráfego" type="checkbox" name="crime" value="0|15000|12000" onclick="calcular()">Art. 7.11 - Impedir o fluxo do tráfego</p>
+	<p><input id="Art. 7.12 - Colisão Proposital em viatura policial" type="checkbox" name="crime" value="15|20000|15000" onclick="calcular()">Art. 7.12 - Colisão Proposital em viatura policial</p>
+
+
+   
+	
+ </div>
+ <div class="quadro">
+        <h3><FONT COLOR="#000000"> 🧮 CALCULADORA</h3>
+	 
+		<p>Pena: <input type="text" id="pena" name="pena" onlyread="true" size=2 style="margin-right:5px">meses ⚖️</p>
+        <p> 	 
+        <p>Multa: R$ <input type="text" id="multa" name="multa" onlyread="true" size=5 style="margin-right:15px">💸</p>
+        <p> 
+		<p>Fiança: R$ <input type="text" id="fianca" name="fianca" onlyread="true" size=4 style="margin-right:10px">   💸</p>
+       <p> 
+		<p>Condicional: <input type="text" value="NÃO USAR" id="condicional" name="condicional" onlyread="true" size=7 style="margin-right:10px">meses ⚖️</p>
+        <p>
+		<p> 
+		<p>          
+        <button onclick="limpar()">Limpar</button>
+
+		<h3 style="margin-top: 30px;"></h3>
+		<h3>DINHEIRO SUJO:</h3><FONT COLOR="#275c3d">
+		<p><input type="number" id="sujo" name="sujo"  onchange="calcular()" size=9>R$ Dinheiro sujo</p> 
+		<br> 
+		<br> </FONT>
+		<h3>CRIMES (ARTIGOS SELECIONADOS):</h3> 
+		<textarea rows="10"  cols="50" maxlength="500" id="bruno" class="TextoArtigos" ></textarea>
+		
+             <br> <button id="bruno" onclick="copiar()">Copiar</button>
+	 
+	 
+
+        <h4><FONT COLOR="#b50000">🔹 Réu primário: <FONT COLOR="#6f747a">Redução de 50% na pena total.
+		<FONT COLOR="#000000">Sem a participação de um advogado o primário cai para 30% na pena total.</FONT></h4>
+		<h4><FONT COLOR="#b50000">🔹 Réu confesso: <FONT COLOR="#6f747a">Redução de 20% na pena total.</FONT></h4>
+		<h4><FONT COLOR="#b50000">🔹 Delação premiada: <FONT COLOR="#6f747a">Critério do policial.</FONT></h4>
+		<h4><FONT COLOR="#b50000">🔹 Advogado constituído: <FONT COLOR="#6f747a">Redução de 30% na pena total.</FONT></h4>
+		<h4><FONT COLOR="#b50000">🔹 Desacatado é cumulativo até o máximo de 100 meses, de forma subjetiva e fica a caráter do policial, porém a pena base é de 20 meses</FONT></h4>	
+		<h4><FONT COLOR="#b50000">🔹 Reincidência +10 meses (mesmo crime)</FONT></h4>
+		<h4><FONT COLOR="#b50000">🔹 A fiança NÃO depende da presença do advogado constituido.</FONT></h4>
+		<h4><FONT COLOR="#b50000">🔹 Um cúmplice irá ser sentenciado pelos mesmos crimes do réu principal</FONT> <FONT COLOR="#6f747a">(EXCETO CRIMES DE PORTE, POSSE, TRÁFICO E DE TRÂNSITO).</FONT></h4>
+	 
+	
+</div> 
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d4ede693a774cf7',m:'c1hW1Rh0H4tuZl0wsr8lc_PxHochVPe94cU5za3H6pc-1643421646-0-AZgReWNppiCIufGN9b0SQAKCqRsLtHcwRgDjgAZ+Ebwly7w0zsT9G6XS1O/UzoI0KiHefNZG3S1S37LGPme9exr6Q+bETOtZoXvE80b2jTfbfvhbNPPCZOseNmfBmgNt6A/HEo8div1AtL5xdFuLfRozIq3iNLhezke9DJu8FQdEnFcZ+SAUTYcHVynGr69bHeJn9/0I1C6Z2kVFP5+t1xjmrXaI1cyd880XCyhvg3kG',s:[0xa3d3168605,0xba02de72f3],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d55320baf256030',m:'ZIEu.pp.iZbUyq5KJvDLfjpPqMeOMxiNGM_gE_5Duyk-1643487986-0-AcUKQeDM0xlzizuzSCE1OWs4UCC/gTki/Wf/ptjXki9iQ5VGlYhrXoxDtlJyTdabd/omn/0PoOs+p2TFELZ2mXXA6xQBQ2b+78uInsszFfSZ930uS3lQhVc0pV+mm90Hi0ieWJJmSuym9EtYDi4CGxRFI1YKe+wVHyalMeXttvlzsYErYN8azcWTRNNeh5t9RbTkmCwQHWLPNxXvCr0wo0DuT9CtjXmfznyCLMi9IUpe',s:[0x6efed7905d,0x60ab50310e],}})();</script></body>	
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+  $("#1 :checkbox").change(function() {
+    let textAreaVal=$(".TextoArtigos").val();
+    if($(this).prop("checked")==true){
+      if(!textAreaVal.includes($(this).attr("id"))){
+        textAreaVal += $(this).attr("id")+"\n";
+      }
+    }
+    else{
+       if(textAreaVal.includes($(this).attr("id"))){
+        textAreaVal = textAreaVal.replace($(this).attr("id"),"");
+      }
+    }
+
+
+   $(".TextoArtigos").val(textAreaVal);
+});
+  $("#2 :checkbox").change(function() {
+    let textAreaVal=$(".TextoArtigos").val();
+    if($(this).prop("checked")==true){
+      if(!textAreaVal.includes($(this).val())){
+        textAreaVal += $(this).attr("id")+"\n";
+      }
+    }
+    else{
+       if(textAreaVal.includes($(this).attr("id"))){
+        textAreaVal = textAreaVal.replace($(this).attr("id"),"");
+      }
+    }
+
+
+   $(".TextoArtigos").val(textAreaVal);
+});
+			function calcular() {
+				var Pena = 0;
+				var Multa = 0;
+				var Fianca = 0; 
+				var Condicional =  "NÃO USAR"; 
+
+				/* Crimes */
+				var crimes = document.getElementsByName('crime');
+				for (var i = 0; i < crimes.length; i++){
+			        if ( crimes[i].checked ) {
+			        	var valores_crime = crimes[i].value.split("|");
+			        	Pena += parseInt(valores_crime[0]);
+			        	Multa += parseInt(valores_crime[1]);
+			        	Fianca += parseInt(valores_crime[2]); 
+			        	/*Condicional += parseInt(valores_crime[0])*4; */
+			        	Condicional = "NÃO USAR";
+				    }
+				}
+
+				/* dinheiro sujo */
+				var sujo = parseInt(document.getElementById("sujo").value);
+				if(sujo > 0){
+					var unidade_sujo = sujo / 4000;
+					Pena += parseInt(unidade_sujo);
+				}
+
+				var pena_txt = document.getElementById("pena");
+				pena_txt.value = Pena;
+				var multa_txt = document.getElementById("multa");
+				multa_txt.value = Multa;
+				var fianca_txt = document.getElementById("fianca");
+				fianca_txt.value = Fianca; 
+				var condicional_txt = document.getElementById("condicional");
+				condicional_txt.value = Condicional; 
+			}
+			function limpar(){
+				var crimes = document.getElementsByName('crime');
+				for (var i = 0; i < crimes.length; i++){
+			        crimes[i].checked = false;
+				}
+
+				var drogas = document.getElementById("pena");
+				drogas.value = 0;
+
+				var sujo = document.getElementById("multa");
+				sujo.value = 0;
+
+				var sujo = document.getElementById("fianca");
+				sujo.value = 0;
+
+
+				document.getElementById("pena").value = "0";
+				document.getElementById("multa").value = "0";
+				document.getElementById("fianca").value = "0";
+				document.getElementById("condicional").value = "NÃO USAR";
+				document.getElementById("bb").value = "";
+				
+			}
+			
+			function copiar() { let textarea = document.getElementById("bb"); textarea.select(); document.execCommand("copy"); }
+			 
+   
+		</script>
+		 
+
